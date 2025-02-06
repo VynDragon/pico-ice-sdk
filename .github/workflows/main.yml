@@ -49,7 +49,7 @@ jobs:
             ${{ runner.os }}-build-
 
       - name: Fetch submodules
-        if: steps.cache-submodules.cache-hit != 'true'
+        if: steps.cache-submodules.outputs.cache-hit != 'true'
         run: |
           git submodule update --init
           git -C lib/pico-sdk submodule update --init
